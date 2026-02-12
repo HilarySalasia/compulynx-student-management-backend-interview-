@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" th:href="@{students.css}" />
+    <title>Student Data</title>
+</head>
+
+<body>
+
+<div class="container" style="border: solid 1px black; padding: 20px;">
+    <!-- Header -->
+    <div class="header" style="text-align: center; margin-bottom: 20px;">
+        <h2>Student Information</h2>
+    </div>
+
+    <!-- Organization Details -->
+    <div class="organization-details" style="margin-bottom: 20px;">
+        <div style="float: left;">
+            <img th:src="${organization?.logoUrl}" alt="Organization Logo" style="width: 100px; height: auto;" />
+        </div>
+        <div style="float: right; text-align: right;">
+            <p th:text="|${organization?.name?: 'Compulynx'}|"></p>
+            <p th:text="|${organization?.address?: 'Nairobi'}|"></p>
+            <p th:text="|${organization?.phoneNumber?: '070122334455'}|"></p>
+            <p th:text="|${organization?.email?: 'info@compulynx.com'}|"></p>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+    <hr>
+
+    <hr>
+
+    <!-- Student List -->
+    <div class="student-list" style="margin-bottom: 20px;">
+        <h3>Student List</h3>
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9em;">
+                <thead>
+                <tr>
+                    <th style="border: 1px solid black; padding: 5px;">Student ID</th>
+                    <th style="border: 1px solid black; padding: 5px;">Name</th>
+                    <th style="border: 1px solid black; padding: 5px;">Class</th>
+                    <th style="border: 1px solid black; padding: 5px;">Date of Birth</th>
+                    <th style="border: 1px solid black; padding: 5px;">Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="student, iStat : ${students}">
+                    <td th:text="|${student?.studentId?: 'NA'}|"></td>
+                    <td th:text="|${student?.firstName + ' ' +student?.lastName?: 'NA'}|"></td>
+                    <td th:text="|${student?.className?: 'NA'}|"></td>
+                    <td th:text="|${student?.dob?: 'NA'}|"></td>
+                    <td th:text="|${student?.score?: 'NA'}|"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Additional Comments -->
+    <div class="additional-comments" style="margin-bottom: 20px;">
+        <h3>Additional Comments</h3>
+        <p th:text="|${comments?: 'No additional comments.'}|"></p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer" style="text-align: center; margin-top: 20px;">
+        <p>Powered by <strong>Student Management System</strong></p>
+    </div>
+</div>
+
+</body>
+
+</html>
