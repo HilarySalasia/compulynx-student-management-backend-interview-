@@ -2,8 +2,10 @@ package com.compulynx.excel.service;
 
 import com.compulynx.excel.entity.Student;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public interface StudentService {
 
@@ -19,4 +21,8 @@ public interface StudentService {
 
     Page<Student> getStudentsWithPaginationAndSorting(int page, int size, String sortBy, String sortDirection,
                                                       String className);
+
+    Student getStudentById(Long id);
+
+    Page<Student> getStudentsByClassName(String className, Pageable pageable);
 }

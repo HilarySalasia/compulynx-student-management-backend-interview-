@@ -9,9 +9,9 @@ import java.util.Map;
 
 public interface ExcelService {
 
-    String generateExcelFile(Long noRows) throws IOException;
+    String generateExcelFile(Long noRows) throws IOException, InterruptedException;
     Map<Integer, List<String>> readExcelFile(MultipartFile multipartFile) throws IOException;
     String convertExcelFileToCsv(MultipartFile multipartFile) throws IOException;
 
-    byte[] exportExcelFile(List<Student> students) throws IOException;
+    byte[] exportExcelFile() throws IOException;
 }

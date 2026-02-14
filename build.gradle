@@ -33,6 +33,7 @@ dependencies {
     implementation 'net.datafaker:datafaker:2.5.3'
     implementation 'org.apache.commons:commons-csv:1.14.1'
     implementation 'com.itextpdf:html2pdf:6.1.0'
+    implementation 'com.github.pjfanning:excel-streaming-reader:5.1.2'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.4.13'
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.4.0'
     compileOnly 'org.projectlombok:lombok'
